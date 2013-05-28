@@ -1,0 +1,3 @@
+FbApp.FriendsView = {
+
+};
