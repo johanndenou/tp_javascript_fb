@@ -1,63 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <title>FB Friend App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Application FB">
+    <meta name="author" content="Johann Denou">
 
-    <!-- Le styles -->
+    <!-- Les styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-
-      .app {
-        -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-                box-sizing: border-box;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .app .app-heading,
-      .app .checkbox {
-        margin-bottom: 10px;
-      }
-      .app input[type="text"],
-      .app input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-      .app input[type="text"]#search {
-        width: 270px;
-      }
-
-      .app-toolbar{padding: 10px 0px;margin-left: 0px !important;}
-      .app .friend-item{margin-bottom:10px;}
-
-      .app #graphes {
-        margin-bottom: 20px;
-      }
-    </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
   </head>
 
   <body>
-
     <div class="container">
       <div class="app row">
         <div class="span12">
@@ -72,12 +29,14 @@
             <button id="graphSexe">Graphe Sexe</button>
             <button id="graphRelationship">Graphe Relationship</button>
             <button id="graphFriendCount">Graphe Friend Count</button>
+            <button id="graphAge">Graphe Age</button>
             <button id="hideGraph" style="display: none">Hide Graphe</button>
           </div>
           <div id="divGraphes">
             <div id="chartBySex"></div>
             <div id="chartByFriendCount"></div>
             <div id="chartByRelationship"></div>
+            <div id="chartByAge"></div>
           </div>
           <div class="friend-list row"></div>
         </div>
@@ -110,9 +69,11 @@
     <script src="js/backbone.1.0.0.js"></script>
     <script src="js/highcharts.js"></script>
     <script src="js/exporting.js"></script>
+
     <script type="text/javascript">
       var FbApp = {};
     </script>
+
     <script src="app/Friend.js" type="text/javascript"></script>
     <script src="app/Friends.js" type="text/javascript"></script>
     <script src="app/FriendView.js" type="text/javascript"></script>
@@ -131,47 +92,10 @@
     <script src="app/chart/ChartRelationshipModel.js" type="text/javascript"></script>
     <script src="app/chart/ChartRelationshipView.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-      FbApp.init = function() {
-        var myFriends = new FbApp.Friends();
+    <script src="app/chart/ChartAgeModel.js" type="text/javascript"></script>
+    <script src="app/chart/ChartAgeView.js" type="text/javascript"></script>
 
-/**************/
-        var myChartSexModel = new FbApp.ChartSexModel({
-          collection: myFriends
-        });
-        var myChartFriendCountModel = new FbApp.ChartFriendCountModel({
-          collection: myFriends
-        });
-        var myChartRelationshipModel = new FbApp.ChartRelationshipModel({
-          collection: myFriends
-        });
-
-        var myChartSexView = new FbApp.ChartSexView({
-          model: myChartSexModel,
-          el: $('.app')[0]
-        });
-        var myChartFriendCountView = new FbApp.ChartFriendCountView({
-          model: myChartFriendCountModel,
-          el: $('.app')[0]
-        });
-        var myChartRelationshipView = new FbApp.ChartRelationshipView({
-          model: myChartRelationshipModel,
-          el: $('.app')[0]
-        });
-/**************/
-
-
-
-        var myApp = new FbApp.AppView({
-          collection: myFriends,
-          el: $('.app')[0]
-        });
-
-
-        myFriends.reset(getFriends());
-      };
-      FbApp.init();
-    </script>
-
+    <script src="app.js" type="text/javascript"></script>
   </body>
+
 </html>

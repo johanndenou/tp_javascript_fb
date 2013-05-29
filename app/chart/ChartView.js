@@ -12,6 +12,8 @@ FbApp.ChartView = Backbone.View.extend({
         $('#chartByRelationship').removeAttr("data-highcharts-chart");
         $('#chartByFriendCount').html("");
         $('#chartByFriendCount').removeAttr("data-highcharts-chart");
+        $('#chartByAge').html("");
+        $('#chartByAge').removeAttr("data-highcharts-chart");
 	}
 
 });

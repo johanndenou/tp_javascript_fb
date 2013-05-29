@@ -22,6 +22,8 @@ FbApp.ChartFriendCountView = FbApp.ChartView.extend({
 		$('#chartBySex').removeAttr("data-highcharts-chart");
 		$('#chartByRelationship').html("");
 		$('#chartByRelationship').removeAttr("data-highcharts-chart");
+        $('#chartByAge').html("");
+        $('#chartByAge').removeAttr("data-highcharts-chart");
 		this.$chartByFriendCount.highcharts({
             chart: {
                 plotBackgroundColor: null,

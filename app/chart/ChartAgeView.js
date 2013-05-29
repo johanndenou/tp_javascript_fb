@@ -1,38 +1,37 @@
-FbApp.ChartSexView = FbApp.ChartView.extend({
+FbApp.ChartAgeView = FbApp.ChartView.extend({
 
 	events: {
-		'click #graphSexe': 'grapheSexe',
+		'click #graphAge': 'grapheAge',
         'click #hideGraph': 'hideGraph'
 	},
 
 	initialize: function() {
 		this.model.on('reset', this.render, this);
-        //this.model.on('change:chartData', this.render, this);
-        this.$chartBySex = this.$el.find('#chartBySex');
+        this.$chartByAge = this.$el.find('#chartByAge');
 	},
 
-	grapheSexe: function() {
-        if($('#chartBySex').html() == "") {
-            this.model.afficheGrapheSexe();
-        }
+	grapheAge: function() {
+		if($('#chartByAge').html() == "") {
+			this.model.afficheGrapheAge();
+		}
 	},
 
 	render: function(data) {
-        $('#hideGraph').css("display", "");
-        $('#chartByRelationship').html("");
-        $('#chartByRelationship').removeAttr("data-highcharts-chart");
+		$('#hideGraph').css("display", "");
+		$('#chartBySex').html("");
+		$('#chartBySex').removeAttr("data-highcharts-chart");
+		$('#chartByRelationship').html("");
+		$('#chartByRelationship').removeAttr("data-highcharts-chart");
         $('#chartByFriendCount').html("");
         $('#chartByFriendCount').removeAttr("data-highcharts-chart");
-        $('#chartByAge').html("");
-        $('#chartByAge').removeAttr("data-highcharts-chart");
-		this.$chartBySex.highcharts({
+		this.$chartByAge.highcharts({
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false
             },
             title: {
-                text: 'Répartition du sexe des amis'
+                text: 'Age des amis'
             },
             tooltip: {
         	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -54,15 +53,7 @@ FbApp.ChartSexView = FbApp.ChartView.extend({
             },
             series: [{
                 type: 'pie',
-                name: 'Browser share',
-                /*data: [
-                    ['Firefox',   45.0],
-                    ['IE',       26.8],
-                    ['Chrome',       12.8],
-                    ['Safari',    8.5],
-                    ['Opera',     6.2],
-                    ['Others',   0.7]
-                ]*/
+                name: 'Age des amis',
                 data: data
             }]
         });

@@ -23,6 +23,8 @@ FbApp.ChartRelationshipView = FbApp.ChartView.extend({
 		$('#chartBySex').removeAttr("data-highcharts-chart");
 		$('#chartByFriendCount').html("");
 		$('#chartByFriendCount').removeAttr("data-highcharts-chart");
+        $('#chartByAge').html("");
+        $('#chartByAge').removeAttr("data-highcharts-chart");
 		this.$chartByRelationship.highcharts({
             chart: {
                 plotBackgroundColor: null,
